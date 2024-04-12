@@ -23,7 +23,7 @@ PCB           | ETH0          |192.168.4.3  |255.255.255.0  |192.168.4.1
 ## VLAN 3 управление
 
 Графическая схема:  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/2024-04-12_14-33-49.png)
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/графическая%20схема.png)
 
 ### 1.1 Настроим основные параметры безопасности на устройствах R1, S1, S2   
 #### Пример конфигурации:  
@@ -44,7 +44,8 @@ enable secret cisco
 !  
 service password-encryption  
 !  
-banner motd $accessing the device that unauthorized access is prohibited$  
+banner motd $ unauthorized access to the device is prohibited  
+
 ### 2. Создадим VLAN и назначим порты коммутаторов
 ### 3. Настроим магистрали 802.1Q между коммутаторами  
 #### Пример конфигурации:
@@ -93,4 +94,4 @@ encapsulation dot1Q 8 native
 
 ### 5. Проверим работоспособность маршрутизации между VLAN
 
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/2024-04-12_20-46-51.png)
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/TEST%20PC-A.png)
