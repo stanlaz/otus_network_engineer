@@ -64,8 +64,7 @@ interface Ethernet0/2
 switchport trunk allowed vlan 3,4  
 switchport trunk encapsulation dot1q  
 switchport trunk native vlan 8  
-switchport mode trunk  
-spanning-tree portfast edge trunk  
+switchport mode trunk    
 !  
 interface Ethernet0/3  
 !  
