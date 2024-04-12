@@ -93,4 +93,4 @@ encapsulation dot1Q 8 native
 
 ### 5. Проверим работоспособность маршрутизации между VLAN
 
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/2024-04-12_14-33-49.png)
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/2024-04-12_20-46-51.png)
