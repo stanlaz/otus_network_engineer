@@ -45,19 +45,7 @@ enable secret cisco
 service password-encryption  
 !  
 banner motd $accessing the device that unauthorized access is prohibited$  
-
-Конфигурация устройств:  
-* R1  
-interface Ethernet0/2.3  
-encapsulation dot1Q 3  
-ip address 192.168.3.1 255.255.255.0  
-!  
-interface Ethernet0/2.4  
-encapsulation dot1Q 4  
-ip address 192.168.4.1 255.255.255.0  
-!  
-interface Ethernet0/2.8  
-encapsulation dot1Q 8 native  
+3. Создадим VLAN и назначим порты коммутаторов  
 
 * S1  
 interface Ethernet0/0  
@@ -86,4 +74,20 @@ interface Vlan4
 no ip address  
 !  
 ip default-gateway 192.168.3.1  
-## Настроим маршрутизацию между VLAN
+
+4. Настроим маршрутизацию между VLAN  
+
+Пример конфигурации:  
+* R1  
+interface Ethernet0/2.3  
+encapsulation dot1Q 3  
+ip address 192.168.3.1 255.255.255.0  
+!  
+interface Ethernet0/2.4  
+encapsulation dot1Q 4  
+ip address 192.168.4.1 255.255.255.0  
+!  
+interface Ethernet0/2.8  
+encapsulation dot1Q 8 native  
+
+5. Проверим работоспособность маршрутизации между VLAN
