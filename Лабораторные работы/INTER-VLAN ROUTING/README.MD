@@ -25,24 +25,25 @@ VLAN 3 управление
 Графическая схема:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/2024-04-12_14-33-49.png)
 
-2. Настроим основные параметры безопасности на устройствах R1, S1, S2 
+2. Настроим основные параметры безопасности на устройствах R1, S1, S2   
 Пример конфигурации:  
+!  
 line console 0  
 password cisco  
 exec-timeout 5 0  
 login  
 logging synchronous  
-!
+!  
 line vty 0 4  
 password cisco  
 exec-timeout 5 0  
 login  
 logging synchronous  
-!
+!  
 enable secret cisco  
-!
+!  
 service password-encryption  
-!
+!  
 banner motd $accessing the device that unauthorized access is prohibited$  
 
 Конфигурация устройств:  
