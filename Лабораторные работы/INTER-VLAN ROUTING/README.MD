@@ -23,7 +23,20 @@ VLAN 3 управление
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/2024-04-12_14-33-49.png)
 
 # Решение:
-1. Создадим сеть и настройте основные параметры устройства
+1. Создадим сеть и настроим основные параметры устройств
+
+2. Конфигурация устройств:  
+!  
+interface Ethernet0/2.3  
+encapsulation dot1Q 3  
+ip address 192.168.3.1 255.255.255.0  
+!  
+interface Ethernet0/2.4  
+encapsulation dot1Q 4  
+ip address 192.168.4.1 255.255.255.0  
+!  
+interface Ethernet0/2.8  
+encapsulation dot1Q 8 native  
 
 
 ## Настроим маршрутизацию между VLAN
