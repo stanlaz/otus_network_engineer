@@ -5,6 +5,9 @@
 4. Настроить маршрутизацию между VLAN на маршрутизаторе
 5. Проверить работоспособность маршрутизации между VLAN
 
+# Решение:
+1. Создадим сеть и настроим основные параметры устройств
+
 ## Таблица адресации:
 
 Устройство    | Интерфейс     | IP Адрес    | Маска подсети | Шлюз по умолчанию  
@@ -22,10 +25,27 @@ VLAN 3 управление
 Графическая схема:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/2024-04-12_14-33-49.png)
 
-# Решение:
-1. Создадим сеть и настроим основные параметры устройств
+2. Настроим основные параметры безопасности на устройствах R1, S1, S2 
+Пример конфигурации:  
+line console 0  
+password cisco  
+exec-timeout 5 0  
+login  
+logging synchronous  
+!
+line vty 0 4  
+password cisco  
+exec-timeout 5 0  
+login  
+logging synchronous  
+!
+enable secret cisco  
+!
+service password-encryption  
+!
+banner motd $accessing the device that unauthorized access is prohibited$  
 
-2. Конфигурация устройств:  
+Конфигурация устройств:  
 * R1  
 interface Ethernet0/2.3  
 encapsulation dot1Q 3  
