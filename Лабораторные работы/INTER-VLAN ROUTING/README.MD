@@ -76,6 +76,29 @@ no ip address
 !  
 ip default-gateway 192.168.3.1  
 
+* S2  
+interface Ethernet0/0  
+switchport access vlan 4  
+switchport mode access  
+!  
+interface Ethernet0/1  
+switchport trunk allowed vlan 3,4  
+switchport trunk encapsulation dot1q  
+switchport trunk native vlan 8  
+switchport mode trunk 
+!  
+interface Ethernet0/2      
+!  
+interface Ethernet0/3  
+!  
+interface Vlan3  
+ip address 192.168.3.11 255.255.255.0  
+!  
+interface Vlan4  
+no ip address  
+!  
+ip default-gateway 192.168.3.1 
+
 ### 4. Настроим маршрутизацию между VLAN  
 
 #### Пример конфигурации:  
@@ -92,5 +115,7 @@ interface Ethernet0/2.8
 encapsulation dot1Q 8 native  
 
 ### 5. Проверим работоспособность маршрутизации между VLAN
-
+#### PING PC-A
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/TEST%20PC-A.png)
+#### TRACE PC-B TO PC-A
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/TRACE%20PC-B%20to%20PC-A.png)
