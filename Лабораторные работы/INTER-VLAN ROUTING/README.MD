@@ -85,14 +85,14 @@ interface Ethernet0/1
 switchport trunk allowed vlan 3,4  
 switchport trunk encapsulation dot1q  
 switchport trunk native vlan 8  
-switchport mode trunk 
+switchport mode trunk  
 !  
 interface Ethernet0/2      
 !  
 interface Ethernet0/3  
 !  
 interface Vlan3  
-ip address 192.168.3.11 255.255.255.0  
+ip address 192.168.3.12 255.255.255.0  
 !  
 interface Vlan4  
 no ip address  
