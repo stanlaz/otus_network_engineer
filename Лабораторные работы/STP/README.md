@@ -105,7 +105,7 @@ S3(config-if)# spanning-tree cost 90
 
 - Включим ранее заблокированные порты e0/0 и e0/2 на всех коммутаторах.
 - Ждем 30 секунд, чтобы протокол STP завершил процесс перевода порта, после чего выполним команду show spanning-tree на коммутаторах некорневого моста. Видим, что порт корневого моста переместился на порт с меньшим номером, связанным с коммутатором корневого моста, а так же - stp заблокировал предыдущий порт корневого моста.
-![alt-текст] (https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/STP/show_stp_all_ports.png)
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/STP/show_stp_all_ports.png)
 
 
 
