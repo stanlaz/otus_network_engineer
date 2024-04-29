@@ -228,13 +228,24 @@ domain-name ccna-lab.com
 default-router 192.168.1.1  
 lease 2 12 30  
 !  
-ip dhcp excluded-address 192.168.1.97 192.168.1.101
-!
-ip dhcp pool R2_Client_LAN
-network 192.168.1.96 255.255.255.240
-default-router 192.168.1.97
-domain-name ccna-lab.com
-lease 2 12 30
-!
+ip dhcp excluded-address 192.168.1.97 192.168.1.101  
+!  
+ip dhcp pool R2_Client_LAN  
+network 192.168.1.96 255.255.255.240  
+default-router 192.168.1.97  
+domain-name ccna-lab.com  
+lease 2 12 30  
+!  
+
+Получим IP-адрес от DHCP на VPC-A (введем команду ip dhcp), после получения IP-адреса проверим доступность основного шлюза
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-A.png)
 
+### Настроим на R2 трансляцию DHCP-запросов из локальной сети по интерфейсу e 0/1 на DHCP-сервер (R1)
+!  
+int e 0/1  
+ip helper-address 10.0.0.1  
+end  
+wr  
+!
+Получим IP-адрес от DHCP на VPC-B (введем команду ip dhcp), после получения IP-адреса проверим доступность основного шлюза
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-B.png)
