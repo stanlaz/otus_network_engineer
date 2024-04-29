@@ -11,7 +11,7 @@ R1        | e0/1.1000    | N/A            |	N/A            |                |
 R2	      | e0/0         | 10.0.0.2       | 255.255.255.252|      N/A       |
 R2        | e0/1         | 192.168.1.97   | 255.255.255.240|                |
 S1        | VLAN 200     | 192.168.1.66   | 255.255.255.224| 192.168.1.65   |
-S2        |	VLAN 1       | 192.168.1.98   | 255.255.255.240| 192.168.1.7    |
+S2        |	VLAN 1       | 192.168.1.98   | 255.255.255.240|                |
 PC-A	  | eth0         | DHCP           | DHCP           |	DHCP        |
 PC-B	  | eth0         | DHCP           |	DHCP           |	DHCP        |
 2. Создадим сеть и подключим устройства
@@ -100,8 +100,99 @@ end
 !  
 write  
 !  
-5. Убедимся, что субинтерфейсы настроены правильно:
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/interface.png)
-6. Убедимся, статическая маршрутизация работает:
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/ping%20R1%20to%20R2.png)
+5. Проверим настройки:  
+- Убедимся, что субинтерфейсы настроены правильно:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/interface.png)  
+- Убедимся, что статическая маршрутизация работает, отправив эхо запрос c R1 на R2 :  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/ping%20R1%20to%20R2.png)  
+6. Далее настроим базовые параметры каждого коммутатора.    
+#### Пример конфигурации:  
+
+hostname S1  
+!  
+line console 0  
+password cisco  
+exec-timeout 15 0  
+login  
+logging synchronous  
+!  
+line vty 0 4  
+password cisco  
+exec-timeout 15 0  
+login  
+logging synchronous  
+!  
+enable secret cisco  
+!  
+service password-encryption  
+!  
+banner motd $accessing the device that unauthorized access is  prohibited  
+!  
+no ip domain lookup  
+!  
+end  
+!  
+write  
+7. 
+- Согласно таблицам создадим и назовем необходимые vlan на S1. Настроим и активируем интерфейс управления на S1 (VLAN 200) и установим шлюз по умолчанию.  
+- Настроим и активируем интерфейс управления на S2 (VLAN 1) и шлюз по умолчанию.
+- Назначим все неиспользуемые порты на S1 в VLAN Parking_Lot, настроим для них режим статического доступа и отключим в административном порядке.  
+- На S2 отключим все неиспользуемые порты в административном порядке.
+#### Пример конфигурации:  
+### S1
+vlan 100  
+!  
+name Clients  
+!  
+vlan 200  
+!  
+name Management  
+!  
+vlan 999  
+!  
+name Parking_Lot  
+!  
+vlan 1000  
+!  
+name Native  
+!  
+exit  
+!  
+interface vlan 200  
+!  
+ip address 192.168.1.66 255.255.255.224  
+!  
+no shutdown  
+!  
+exit  
+!
+ip default-gateway 192.168.1.65  
+!
+interface range e0/0-1  
+!  
+switchport mode access  
+!  
+switchport access vlan 999  
+!  
+shutdown  
+!  
+exit  
+!
+### S2
+interface vlan 1  
+!  
+ip address 192.168.1.98 255.255.255.240  
+!  
+no shutdown  
+!  
+exit  
+!  
+ip default-gateway 192.168.1.97  
+!  
+interface range e0/0-1  
+!  
+shutdown  
+!  
+exit  
+!
 
