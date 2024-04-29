@@ -118,4 +118,4 @@ encapsulation dot1Q 8 native
 #### PING PC-A
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/TEST%20PC-A.png)
 #### TRACE PC-B TO PC-A
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/INTER-VLAN%20ROUTING/TRACE%20PC-B%20to%20PC-A.png)
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/vlan%20config.png)
