@@ -48,8 +48,7 @@ no ip domain lookup
 - интерфейс e 0/0
 - дефолтный маршрут
 #### для R2 настроим
-- интерфейс e0/1 согласно таблице
-- интерфейс e0/0
+- интерфейс e0/1 и e0/0 согласно таблице
 - дефолтный маршрут
 #### примеры конфигурации
 #### R1
@@ -69,16 +68,40 @@ interface e0/1.1000
 encapsulation dot1Q 1000 native  
 !  
 interface e0/0  
- ip address 10.0.0.1 255.255.255.252  
+ip address 10.0.0.1 255.255.255.252  
+!  
+exit  
 !  
 ip route 0.0.0.0 0.0.0.0 10.0.0.2  
+!  
+end  
+!
+write  
+!
 #### R2  
 !  
 interface e0/0  
+!  
 no shutdown  
+!  
 ip address 10.0.0.2 255.255.255.252  
 !  
 interface e0/1  
+!  
 no shutdown  
+!  
 ip address 192.168.1.97 255.255.255.240  
-!
+!  
+exit  
+!  
+ip route 0.0.0.0 0.0.0.0 10.0.0.1  
+!  
+end  
+!  
+write  
+!  
+5. Убедимся, что субинтерфейсы настроены правильно:
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/interface.png)
+6. Убедимся, статическая маршрутизация работает:
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/ping%20R1%20to%20R2.png)
+
