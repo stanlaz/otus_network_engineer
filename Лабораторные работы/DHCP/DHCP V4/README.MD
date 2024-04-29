@@ -190,9 +190,22 @@ exit
 ip default-gateway 192.168.1.97  
 !  
 interface range e0/0-1  
+!
+switchport mode access
 !  
 shutdown  
 !  
 exit  
 !
+8. Назначим используемые порты соответствующей VLAN и сконфигурируем их для статического режима доступа.
+### S1
+!  
+interface e0/2  
+!  
+switchport mode access  
+!  
+switchport access vlan 100  
+!  
+Как видим порт e0/3 находится в сети VLAN по умолчанию и не настроен как магистральный порт 802.1Q.  
+![alt-текст] (https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/vlan%20config.png)  
 
