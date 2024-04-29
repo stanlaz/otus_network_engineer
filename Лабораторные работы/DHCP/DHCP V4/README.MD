@@ -179,51 +179,62 @@ shutdown
 exit  
 !
 ### S2
-interface vlan 1  
-!  
-ip address 192.168.1.98 255.255.255.240  
-!  
-no shutdown  
-!  
-exit  
-!  
-ip default-gateway 192.168.1.97  
-!  
-interface range e0/0-1  
 !
+interface vlan 1  
+ip address 192.168.1.98 255.255.255.240  
+no shutdown  
+exit  
+ip default-gateway 192.168.1.97  
+interface range e0/0-1  
 switchport mode access
-!  
-shutdown  
-!  
+shutdown   
 exit  
 !
 8. Назначим используемые порты соответствующей VLAN и сконфигурируем их для статического режима доступа.
 ### S1
 !  
 interface e0/2  
-!  
 switchport mode access  
-!  
 switchport access vlan 100  
 !  
 Как видим порт e0/3 находится в сети VLAN по умолчанию и не настроен как магистральный порт 802.1Q.  
 
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/vlan%20config.png)
 9. Cконфигурируем интерфейс S1 e0/3 в качестве магистрального 802.1Q, установим для нативного VLAN значение 1000, разрешим для магистрали значения VLAN 100, 200 и 1000.  
-!  
+!
 interface e0/3  
-!  
 switchport mode trunk  
-!  
 switchport trunk native vlan 1000  
-!  
 switchport trunk allowed vlan 100,200,1000  
-!  
-end  
-!  
+end   
 write  
 !  
 Проверим статус магистрали  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/trank%20config.png)
 
 На данный момент у компьютера, если бы он был подключен к сети с использованием DHCP был бы автоматически настроенный адрес (APIPA) в диапазоне 169.254.x.x
+
+
+# Часть 2. Настроим и проверим два DHCPv4-сервера на R1
+
+1. Исключим первые пять доступных адресов из каждого пула адресов
+2. Создадим пул DHCP с именем R1_Client_LAN, укажем сеть для DHCP-сервера, настроим доменное имя ccna-lab.com, шлюз по умолчанию и время аренды на 2 дня 12 часов и 30 минут.
+3. Настройте второй пул DHCPv4, используя имя пула R2_Client_LAN укажем сеть для DHCP-сервера, шлюз по умолчанию, и аналогичное время аренды  
+!  
+ip dhcp excluded-address 192.168.1.1 192.168.1.5  
+ip dhcp pool R1_Client_LAN  
+network 192.168.1.0 255.255.255.192  
+domain-name ccna-lab.com  
+default-router 192.168.1.1  
+lease 2 12 30  
+!  
+ip dhcp excluded-address 192.168.1.97 192.168.1.101
+!
+ip dhcp pool R2_Client_LAN
+network 192.168.1.96 255.255.255.240
+default-router 192.168.1.97
+domain-name ccna-lab.com
+lease 2 12 30
+!
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-A.png)
+
