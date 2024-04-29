@@ -1,5 +1,5 @@
-# Часть 1
-1. Создадим таблицу адресации и рассчитаем подсети согласно заданию
+# Часть 1 создадим сеть и настроим базовые параметры устройств
+1. запишем таблицу адресации и рассчитаем подсети согласно заданию
 #### Addressing Table
 Device    |	Interface    | IP Address     | Subnet Mask    | Default Gateway|  
 ------    | ------------ | -------------- | -------------- | ---------------|
@@ -41,3 +41,44 @@ banner motd $accessing the device that unauthorized access is  prohibited
 !  
 no ip domain lookup  
 !  
+4. Сконфигурируем роутеры R1 и R2:
+#### для R1 настроим
+- субинтерфейсы на e0/1 согласно таблице
+- маршрутизацию между vlan  
+- интерфейс e 0/0
+- дефолтный маршрут
+#### для R2 настроим
+- интерфейс e0/1 согласно таблице
+- интерфейс e0/0
+- дефолтный маршрут
+#### примеры конфигурации
+#### R1
+!  
+interface e0/1  
+no shutdown  
+!  
+interface e0/1.100  
+encapsulation dot1Q 100  
+ip address 192.168.1.1 255.255.255.192  
+!  
+interface e0/1.200  
+encapsulation dot1Q 200  
+ip address 192.168.1.65 255.255.255.224  
+!  
+interface e0/1.1000  
+encapsulation dot1Q 1000 native  
+!  
+interface e0/0  
+ ip address 10.0.0.1 255.255.255.252  
+!  
+ip route 0.0.0.0 0.0.0.0 10.0.0.2  
+#### R2  
+!  
+interface e0/0  
+no shutdown  
+ip address 10.0.0.2 255.255.255.252  
+!  
+interface e0/1  
+no shutdown  
+ip address 192.168.1.97 255.255.255.240  
+!
