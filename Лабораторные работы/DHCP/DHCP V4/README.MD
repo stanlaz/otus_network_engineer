@@ -207,5 +207,5 @@ switchport mode access
 switchport access vlan 100  
 !  
 Как видим порт e0/3 находится в сети VLAN по умолчанию и не настроен как магистральный порт 802.1Q.  
-![alt-текст] (https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/vlan%20config.png)  
 
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/vlan%20config.png)
