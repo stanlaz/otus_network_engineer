@@ -209,3 +209,21 @@ switchport access vlan 100
 Как видим порт e0/3 находится в сети VLAN по умолчанию и не настроен как магистральный порт 802.1Q.  
 
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/vlan%20config.png)
+9. Cконфигурируем интерфейс S1 e0/3 в качестве магистрального 802.1Q, установим для нативного VLAN значение 1000, разрешим для магистрали значения VLAN 100, 200 и 1000.  
+!  
+interface e0/3  
+!  
+switchport mode trunk  
+!  
+switchport trunk native vlan 1000  
+!  
+switchport trunk allowed vlan 100,200,1000  
+!  
+end  
+!  
+write  
+!  
+Проверим статус магистрали  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/trank%20config.png)
+
+На данный момент у компьютера, если бы он был подключен к сети с использованием DHCP был бы автоматически настроенный адрес (APIPA) в диапазоне 169.254.x.x
