@@ -109,7 +109,7 @@ password cisco
 exec-timeout 15 0  
 login  
 logging synchronous  
-enable secret cisco
+enable secret cisco  
 service password-encryption  
 banner motd $accessing the device that unauthorized access is  prohibited  
 no ip domain lookup  
