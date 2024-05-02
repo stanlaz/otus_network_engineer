@@ -20,11 +20,11 @@ PC-B	  | eth0         | DHCP           |	DHCP           |	DHCP        |
 #### VLAN Table
 VLAN |	Name     | Interface Assigned
 -----|-----------|-------------------
-1    |	N/A	     |S2: e0/2
+1    |N/A	     |S2: e0/2
 100	 |Clients    |S1: e0/2
 200  |Management |S1: VLAN 200
-999  |Parking_Lot|S1: F0/1-4, F0/7-24, G0/1-2
-1000 |Native     |	N/A
+999  |Parking_Lot|S1: e0/1, e0/2
+1000 |Native     |N/A
 
 2. Создадим сеть и подключим устройства
 #### Topology
