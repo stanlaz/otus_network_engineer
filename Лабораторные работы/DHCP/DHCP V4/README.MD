@@ -1,4 +1,6 @@
-# Часть 1 создадим сеть и настроим базовые параметры устройств
+## Лабораторная работа
+# DHCP V4
+# Часть 1 
 1. запишем таблицу адресации и рассчитаем подсети согласно заданию
 #### Addressing Table
 Device    |	Interface    | IP Address     | Subnet Mask    | Default Gateway|  
@@ -14,31 +16,36 @@ S1        | VLAN 200     | 192.168.1.66   | 255.255.255.224| 192.168.1.65   |
 S2        |	VLAN 1       | 192.168.1.98   | 255.255.255.240|                |
 PC-A	  | eth0         | DHCP           | DHCP           |	DHCP        |
 PC-B	  | eth0         | DHCP           |	DHCP           |	DHCP        |
+
+#### VLAN Table
+VLAN |	Name     | Interface Assigned
+-----|-----------|-------------------
+1    |	N/A	     |S2: e0/2
+100	 |Clients    |S1: e0/2
+200  |Management |S1: VLAN 200
+999  |Parking_Lot|S1: F0/1-4, F0/7-24, G0/1-2
+1000 |Native     |	N/A
+
 2. Создадим сеть и подключим устройства
 #### Topology
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/Topology.png)
 3. настроим базовые параметры роутеров R1 и R2.    
 #### Пример конфигурации
+!
 hostname R1  
-!  
 line console 0  
 password cisco  
 exec-timeout 15 0  
 login  
 logging synchronous  
-!  
 line vty 0 4  
 password cisco  
 exec-timeout 15 0  
 login  
 logging synchronous  
-!  
 enable secret cisco  
-!  
 service password-encryption  
-!  
 banner motd $accessing the device that unauthorized access is  prohibited  
-!  
 no ip domain lookup  
 !  
 4. Сконфигурируем роутеры R1 и R2:
@@ -55,49 +62,32 @@ no ip domain lookup
 !  
 interface e0/1  
 no shutdown  
-!  
 interface e0/1.100  
 encapsulation dot1Q 100  
 ip address 192.168.1.1 255.255.255.192  
-!  
 interface e0/1.200  
 encapsulation dot1Q 200  
 ip address 192.168.1.65 255.255.255.224  
-!  
 interface e0/1.1000  
 encapsulation dot1Q 1000 native  
-!  
 interface e0/0  
 ip address 10.0.0.1 255.255.255.252  
-!  
 exit  
-!  
 ip route 0.0.0.0 0.0.0.0 10.0.0.2  
-!  
 end  
-!
 write  
 !
 #### R2  
 !  
 interface e0/0  
-!  
 no shutdown  
-!  
 ip address 10.0.0.2 255.255.255.252  
-!  
 interface e0/1  
-!  
 no shutdown  
-!  
 ip address 192.168.1.97 255.255.255.240  
-!  
 exit  
-!  
 ip route 0.0.0.0 0.0.0.0 10.0.0.1  
-!  
 end  
-!  
 write  
 !  
 5. Проверим настройки:  
@@ -107,7 +97,6 @@ write
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/ping%20R1%20to%20R2.png)  
 6. Далее настроим базовые параметры каждого коммутатора.    
 #### Пример конфигурации:  
-
 hostname S1  
 !  
 line console 0  
@@ -115,24 +104,18 @@ password cisco
 exec-timeout 15 0  
 login  
 logging synchronous  
-!  
 line vty 0 4  
 password cisco  
 exec-timeout 15 0  
 login  
 logging synchronous  
-!  
-enable secret cisco  
-!  
+enable secret cisco
 service password-encryption  
-!  
 banner motd $accessing the device that unauthorized access is  prohibited  
-!  
 no ip domain lookup  
-!  
 end  
-!  
 write  
+!
 7. 
 - Согласно таблицам создадим и назовем необходимые vlan на S1. Настроим и активируем интерфейс управления на S1 (VLAN 200) и установим шлюз по умолчанию.  
 - Настроим и активируем интерфейс управления на S2 (VLAN 1) и шлюз по умолчанию.
@@ -140,42 +123,25 @@ write
 - На S2 отключим все неиспользуемые порты в административном порядке.
 #### Пример конфигурации:  
 ### S1
+!
 vlan 100  
-!  
 name Clients  
-!  
 vlan 200  
-!  
 name Management  
-!  
 vlan 999  
-!  
 name Parking_Lot  
-!  
 vlan 1000  
-!  
 name Native  
-!  
 exit  
-!  
 interface vlan 200  
-!  
 ip address 192.168.1.66 255.255.255.224  
-!  
 no shutdown  
-!  
 exit  
-!
 ip default-gateway 192.168.1.65  
-!
 interface range e0/0-1  
-!  
 switchport mode access  
-!  
 switchport access vlan 999  
-!  
 shutdown  
-!  
 exit  
 !
 ### S2
@@ -246,6 +212,6 @@ int e 0/1
 ip helper-address 10.0.0.1  
 end  
 wr  
-!
-Получим IP-адрес от DHCP на VPC-B (введем команду ip dhcp), после получения IP-адреса проверим доступность основного шлюза
+!  
+Получим IP-адрес от DHCP на VPC-B (введем команду ip dhcp), после получения IP-адреса проверим доступность основного шлюза  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-B.png)
