@@ -216,7 +216,7 @@ wr
 !  
 Получим IP-адрес от DHCP на VPC-B (ip dhcp), после получения IP-адреса проверим доступность R1  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-B.png)
-Проверим привязку IP адресов
+Проверим привязку IP адресов  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/dhcp%20binding.png)
-
+Проверим статистику сообщений DHCP
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/dhcp%20server%20statistics.png)
