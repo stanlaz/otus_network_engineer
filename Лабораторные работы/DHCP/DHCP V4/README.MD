@@ -3,7 +3,7 @@
 # Часть 1 
 1. запишем таблицу адресации и рассчитаем подсети согласно заданию
 #### Addressing Table
-Device    |	Interface    | IP Address     | Subnet Mask    | Default Gateway|  
+Device    |	Interface    | IP Address     | Subnet Mask    | Default Gateway|    
 ------    | ------------ | -------------- | -------------- | ---------------|
 R1	      | e0/0         |	10.0.0.1      | 255.255.255.252|      N/A       |
 R1        | e0/1         |	N/A           |	N/A            |                |
@@ -29,6 +29,7 @@ VLAN |	Name     | Interface Assigned
 2. Создадим сеть и подключим устройства
 #### Topology
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/Topology.png)
+
 3. настроим базовые параметры роутеров R1 и R2.    
 #### Пример конфигурации
 !
@@ -206,12 +207,16 @@ lease 2 12 30
 Получим IP-адрес от DHCP на VPC-A (введем команду ip dhcp), после получения IP-адреса проверим доступность основного шлюза
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-A.png)
 
-### Настроим на R2 трансляцию DHCP-запросов из локальной сети по интерфейсу e 0/1 на DHCP-сервер (R1)
+### Настроим на R2 трансляцию DHCP-запросов из локальной сети по интерфейсу e0/1 на DHCP-сервер (R1)
 !  
 int e 0/1  
 ip helper-address 10.0.0.1  
 end  
 wr  
 !  
-Получим IP-адрес от DHCP на VPC-B (введем команду ip dhcp), после получения IP-адреса проверим доступность основного шлюза  
+Получим IP-адрес от DHCP на VPC-B (ip dhcp), после получения IP-адреса проверим доступность R1  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-B.png)
+Проверим привязку IP адресов
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/dhcp%20binding.png)
+
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/dhcp%20server%20statistics.png)
