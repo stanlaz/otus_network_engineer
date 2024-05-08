@@ -214,7 +214,7 @@ lease 2 12 30
 
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-A.png)
 
-### Настроим на R2 трансляцию DHCP-запросов из локальной сети по интерфейсу e0/1 на DHCP-сервер (R1)  
+5. Настроим на R2 трансляцию DHCP-запросов из локальной сети по интерфейсу e0/1 на DHCP-сервер (R1)  
 !  
 int e 0/1  
 ip helper-address 10.0.0.1  
@@ -222,14 +222,14 @@ end
 wr  
 !  
 
-Получим IP-адрес от DHCP на VPC-B (ip dhcp), после получения IP-адреса проверим доступность R1  
+6. Получим IP-адрес от DHCP на VPC-B (ip dhcp), после получения IP-адреса проверим доступность R1  
 
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/VPC-B.png)
 
-Проверим привязку IP адресов  
+7. Проверим привязку IP адресов  
 
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/dhcp%20binding.png)
 
-Проверим статистику сообщений DHCP  
+8. Проверим статистику сообщений DHCP  
 
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/DHCP/DHCP%20V4/dhcp%20server%20statistics.png)
