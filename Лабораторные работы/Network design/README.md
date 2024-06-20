@@ -14,5 +14,32 @@
 
 ### IPv4 network  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/Network%20design/IPv4.png)  
-### IPv4 Internet service provider
- 
+### IPv4 Internet service provider table  
+Device | interface | IP Address    | Note              |IP Loopback|	Provider    |  
+-------|-----------|---------------|-------------------|-----------|----------------|  
+R21    | e 0/0     |90.100.50.9/30 |t0: e0/2 R15 MSK   |3.3.3.22   |LAMAS           |   
+R21    | e 0/1     |75.100.50.10/30|t0: e0/1 R21 KITORN|           |                |
+R21    | e 0/2     |80.80.50.22/30 |t0: e0/0 R24 TRIADA|           |                |
+R22    | e 0/0     |75.100.50.22/30|t0: e0/2 R14 MSK   |2.2.2.21   |KITORN          |
+R22    | e 0/1     |75.100.50.9/30 |t0: e0/1 R21 LAMAS |           |                |
+R22    | e 0/2     |80.80.50.10/30 |t0: e0/0 R23 TRIADA|           |                |
+R23    | e 0/0     |80.80.50.9/30  |to: e0/2 R22 KITORN|1.1.1.23   |TRIADA          |
+R23    | e 0/1     |10.20.10.1/30  |to: e0/0 R25 TRIADA|           |                |
+R23    | e 0/2     |10.20.10.5/30  |to: e0/2 R24 TRIADA|           |                |
+R24    | e 0/0     |80.80.50.21/30 |to: e0/2 R21 LAMAS |1.1.1.24   |                |
+R24    | e 0/1     |10.20.10.13/30 |to: e0/0 R26 TRIADA|           |                |
+R24    | e 0/2     |10.20.10.6/30  |to: e0/2 R23 TRIADA|           |                |
+R24    | e 0/3     |80.80.50.81/30 |to: e0/2 R18 SPB   |           |                |
+R25    | e 0/0     |10.20.10.2/30  |to: e0/1 R23 TRIADA|1.1.1.25   |                |
+R25    | e 0/1     |80.80.50.41/30 |to: e0/0 R27 LAB   |           |                |
+R25    | e 0/2     |10.20.10.9/30  |to: e0/2 R26 TRIADA|           |                |
+R25    | e 0/3     |80.80.50.53/30 |to: e0/1 R28 CHOK  |           |                |
+
+
+
+        
+
+
+
+
+
