@@ -12,6 +12,7 @@
 Настроите VLAN/Loopbackup interface управления для сетевых устройств
 Настроите сети офисов так, чтобы не возникало broadcast штормов, а использование линков было максимально оптимизировано
 
-### IPv4 network
-
+### IPv4 network  
+![alt-текст] (https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/Network%20design/IPv4.png)  
 ### IPv4 Internet service provider
+ 
