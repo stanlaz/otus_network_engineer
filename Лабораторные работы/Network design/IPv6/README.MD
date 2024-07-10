@@ -1,6 +1,6 @@
 # Адресное пространство для IPv6
-### IPv6 network  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/Network%20design/IPv4.png)  
+### IPv6 networбораторныk  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/Network%20design/IPv6/2024-07-10_15-17-44.png)  
 ### IPv4 Internet service provider table  
 Device | interface | IP Address            | Note              |IP Loopback|	Provider    |  
 -------|-----------|-----------------------|-------------------|-----------|----------------|  
