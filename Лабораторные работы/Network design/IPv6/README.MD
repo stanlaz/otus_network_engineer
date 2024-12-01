@@ -1,7 +1,7 @@
 # Адресное пространство для IPv6
 ### IPv6 network  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/Network%20design/IPv6/2024-07-10_15-44-25.png)  
-### IPv4 Internet service provider table  
+### IPv6 Internet service provider table  
 Device | interface | IP Address            | Note              |IP Loopback|	Provider    |  
 -------|-----------|-----------------------|-------------------|-----------|----------------|  
 R21    | e 0/0     |2024:ABAF:2021:2::1/64 |t0: e0/2 R15 MSK   |3.3.3.22   |LAMAS           |   
@@ -22,7 +22,7 @@ R25    | e 0/1     |2024:ABAD:1981:5::1/64 |to: e0/0 R27 LAB   |           |    
 R25    | e 0/2     |2024:ABAD:1980:4::1/64 |to: e0/2 R26 TRIADA|           |                |
 R25    | e 0/3     |2024:ABAD:1981:4::1/64 |to: e0/1 R28 CHOK  |           |                |
 
-### IPv4 Moscow table  
+### IPv6 Moscow table  
 Device | interface | IP Address            | Note              |IP Loopback|  
 -------|-----------|-----------------------|-------------------|-----------|  
 R12    | e 0/0     |2024:BACD:2020:7::1/64 |t0: e1/0 SW4       |4.4.4.12   |   
@@ -44,7 +44,7 @@ R15    | e 0/3     |2024:BACD:2020:6::1/64 |to: e0/0 R20       |           |
 R19    | e 0/0     |2024:BACD:2020:2::9/64 |to: e0/3 R14       |4.4.4.19   |
 R20    | e 0/0     |2024:BACD:2020:6::2/64 |to: e0/3 R15       |4.4.4.20   |  
 
-### IPv4 SPB table  
+### IPv6 SPB table  
 Device | interface | IP Address            | Note              |IP Loopback|  
 -------|-----------|-----------------------|-------------------|-----------|  
 R16    | e 0/0     |2024:ABAD:1981:12::2/64|t0: e0/3 SW10      |           |   
