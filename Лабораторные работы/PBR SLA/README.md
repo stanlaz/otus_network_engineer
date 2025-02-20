@@ -13,18 +13,8 @@ R28    | e 0/2     |172.27.50.1/24 |t0: e0/2 SW29      |           |
 VPC30  | eth0      |172.27.50.5/24 |to: e0/0 SW29      |           |  
 VPC31  | eth0      |172.27.50.6/24 |to: e0/0 SW29      |           |  
 
-На R28 у нас натроено четыре интерфейса:  
-R28#show ip interface brief  
-Interface                  IP-Address      OK? Method Status                Protocol  
-Ethernet0/0                80.80.50.62     YES NVRAM  up                    up  
-Ethernet0/1                80.80.50.54     YES NVRAM  up                    up  
-Ethernet0/2                172.27.50.1     YES NVRAM  up                    up  
-Ethernet0/3                unassigned      YES NVRAM  administratively down down  
-Ethernet1/0                unassigned      YES NVRAM  administratively down down  
-Ethernet1/1                unassigned      YES NVRAM  administratively down down  
-Ethernet1/2                unassigned      YES NVRAM  administratively down down  
-Ethernet1/3                unassigned      YES NVRAM  administratively down down  
-Loopback1                  7.7.7.28        YES NVRAM  up                    up  
+На R28 у нас наcтроено четыре интерфейса:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PBR%20SLA/interfaces.png)  
 
 
 ### Часть2: Распределите трафик между двумя линками с провайдером в Чокурдах  
