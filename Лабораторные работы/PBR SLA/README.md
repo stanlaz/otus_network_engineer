@@ -12,6 +12,7 @@ R28    | e 0/1     |80.80.50.54/30 |t0: e0/3 R25       |           |
 R28    | e 0/2     |172.27.50.1/24 |t0: e0/2 SW29      |           |  
 VPC30  | eth0      |172.27.50.5/24 |to: e0/0 SW29      |           |  
 VPC31  | eth0      |172.27.50.6/24 |to: e0/0 SW29      |           |  
+
 На R28 у нас натроено четыре интерфейса:  
 R28#show ip interface brief  
 Interface                  IP-Address      OK? Method Status                Protocol  
