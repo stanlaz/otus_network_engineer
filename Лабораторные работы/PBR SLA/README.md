@@ -15,7 +15,12 @@ VPC31  | eth0      |172.27.50.6/24 |to: e0/0 SW29      |           |
 
 На R28 у нас наcтроено четыре интерфейса:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PBR%20SLA/interfaces.png)  
-
+На R25 со стороны провайдера  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PBR%20SLA/R25_Interface.png)  
+Настроим статические маршруты:
+R28  
+ip route 0.0.0.0 0.0.0.0 80.80.50.53  
+ip route 0.0.0.0 0.0.0.0 80.80.50.61  
 
 ### Часть2: Распределите трафик между двумя линками с провайдером в Чокурдах  
 
