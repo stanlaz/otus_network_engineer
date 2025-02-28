@@ -15,9 +15,9 @@
 ### IPv4 network  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/Network%20design/IPv4/IPv4.png)  
 ### IPv4 Internet service provider table  
-Device | interface | IP Address    | Note              |IP Loopback|	Provider    |  
+Device | interface | IP Address    | Note              |IP Loopback|	Provider    |
 -------|-----------|---------------|-------------------|-----------|----------------|  
-R21    | e 0/0     |90.100.50.9/30 |t0: e0/2 R15 MSK   |3.3.3.22   |LAMAS           |   
+R21    | e 0/0     |90.100.50.9/30 |t0: e0/2 R15 MSK   |3.3.3.22   |LAMAS           |
 R21    | e 0/1     |75.100.50.10/30|t0: e0/1 R21 KITORN|           |                |
 R21    | e 0/2     |80.80.50.22/30 |t0: e0/0 R24 TRIADA|           |                |
 R22    | e 0/0     |75.100.50.22/30|t0: e0/2 R14 MSK   |2.2.2.21   |KITORN          |
