@@ -17,8 +17,9 @@ VPC31  | eth0      |172.27.50.6/24 |to: e0/0 SW29      |           |
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PBR%20SLA/interfaces.png)  
 На R25 со стороны провайдера  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PBR%20SLA/R25_Interface.png)  
-Настроим статические маршруты:
-R28  
+
+#### Настроим статические маршруты для R28:    
+
 ip route 0.0.0.0 0.0.0.0 80.80.50.53 10  
 ip route 0.0.0.0 0.0.0.0 80.80.50.61 10  
 
@@ -52,7 +53,7 @@ ip sla 2
 ip sla schedule 2 life forever start-time now  
 
 ### Часть4: Настроить для офиса Лабытнанги маршрут по-умолчанию  
-
+Для R27 создадим статический маршрут:  
 ip route 0.0.0.0 0.0.0.0 80.80.50.41  
 
 ### Часть5: План работы и изменения зафиксированы в документации  
