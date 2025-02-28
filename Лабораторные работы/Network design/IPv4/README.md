@@ -34,6 +34,10 @@ R25    | e 0/0     |10.20.10.2/30  |to: e0/1 R23 TRIADA|1.1.1.25   |TRIADA      
 R25    | e 0/1     |80.80.50.41/30 |to: e0/0 R27 LAB   |           |                |
 R25    | e 0/2     |10.20.10.9/30  |to: e0/2 R26 TRIADA|           |                |
 R25    | e 0/3     |80.80.50.53/30 |to: e0/1 R28 CHOK  |           |                |
+R26    | e 0/0     |10.20.10.14/30 |to: e0/1 R24 TRIADA|1.1.1.26   |TRIADA          |
+R26    | e 0/1     |80.80.50.61/30 |to: e0/0 R28 CHOK  |           |                |
+R26    | e 0/2     |10.20.10.10/30 |to: e0/2 R25 TRIADA|           |                |
+R26    | e 0/3     |80.80.50.73/30 |to: e0/3 R18 SPB   |           |                |
 
 ### IPv4 Moscow table  
 Device | interface | IP Address    | Note              |IP Loopback|  
