@@ -145,3 +145,5 @@ interface Ethernet0/3
 
 #### Для R24, R26:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/IS-IS%20ISP%20TRIADA/neighbors%20R24%20R26.png)  
+
+Как видим сформировалось соседство второго уровня между роутерами  
