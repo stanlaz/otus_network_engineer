@@ -22,8 +22,44 @@ R28
 ip route 0.0.0.0 0.0.0.0 80.80.50.53 10  
 ip route 0.0.0.0 0.0.0.0 80.80.50.61 10  
 
-### Часть2: Распределите трафик между двумя линками с провайдером в Чокурдах  
+### Часть2: Распределить трафик между двумя линками с провайдером в Чокурдах  
+#### Создадим на R28 route-map посредством Access-list для VPC30 и VPC31:  
 
-Настроите отслеживание линка через технологию IP SLA в Чокурдах
-Настройте для офиса Лабытнанги маршрут по-умолчанию
-План работы и изменения зафиксированы в документации
+ip access-list standard VPC30  
+ permit 172.27.50.5  
+ip access-list standard VPC31  
+ permit 172.27.50.6  
+!  
+route-map VPC permit 10  
+ match ip address VPC30  
+ set ip next-hop 80.80.50.61  
+!  
+route-map VPC permit 20  
+ match ip address VPC31  
+ set ip next-hop 80.80.50.53  
+!  
+route-map VPC deny 30  
+!  
+### Часть3: Настроить отслеживание линка через технологию IP SLA в Чокурдах  
+#### Настроим функцию отслеживания доступности интерфейсов R25 и R26 с помощью ICMP-echo  
+ip sla 1  
+ icmp-echo 80.80.50.61 source-ip 80.80.50.62  
+ frequency 10  
+ip sla schedule 1 life forever start-time now  
+ip sla 2  
+ icmp-echo 80.80.50.53 source-ip 80.80.50.54  
+ frequency 11  
+ip sla schedule 2 life forever start-time now  
+
+### Часть4: Настроить для офиса Лабытнанги маршрут по-умолчанию  
+
+ip route 0.0.0.0 0.0.0.0 80.80.50.41  
+
+### Часть5: План работы и изменения зафиксированы в документации  
+Проверим балансировку маршрутов для VPC30 и VPC31:  
+
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PBR%20SLA/trace_VPC.png)  
+
+Проверим функцию отслеживания IP-SLA:  
+
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PBR%20SLA/sla_stat.png)  
