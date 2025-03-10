@@ -87,6 +87,12 @@ ip prefix-list AREA-101 seq 15 permit 0.0.0.0/0 le 32
 !  
 area 102 filter-list prefix AREA-101 in  
 !  
+### Часть 5: проверим условия задания:  
+#### Таблица маршрутизации R19:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/R19_routes.png)  
+В таблице маршрутизации присутствует только маршрут по умолчанию  
 
-
+#### Таблица маршрутизации R20:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/R20_routes.png)  
+В таблице маршрутизации маршруты до сетей R19 (10.200.50.0/30 и 4.4.4.19/32 отсутствуют)  
 
