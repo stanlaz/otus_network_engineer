@@ -87,6 +87,7 @@ ip prefix-list AREA-101 seq 15 permit 0.0.0.0/0 le 32
 !  
 area 102 filter-list prefix AREA-101 in  
 !  
+Дополнительно значение приоритетов интерфейсов e0/0 R19 и e0/0 R20 в OSPF были установлены равными 0, для того чтобы данные маршрутизаторы не участвовали в выборах DR  
 ### Часть 5: проверим условия задания:  
 #### Таблица маршрутизации R19:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/R19_routes.png)  
@@ -95,4 +96,9 @@ area 102 filter-list prefix AREA-101 in
 #### Таблица маршрутизации R20:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/R20_routes.png)  
 В таблице маршрутизации маршруты до сетей R19 (10.200.50.0/30 и 4.4.4.19/32 отсутствуют)  
+
+### Часть 6: Настройка IPV6:  
+Логика процесса настройки схожа с IPv4, приведу примеры конфигурации:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/Topology_IPv6.png)  
+
 
