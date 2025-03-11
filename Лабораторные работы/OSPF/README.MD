@@ -120,7 +120,9 @@ ipv6 ospf 50 area 101
  ipv6 router ospf 50  
  area 102 filter-list prefix AREA-101 in  
 - проверяем условия задания:  
+
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/IPv6_R19.png)  
 В таблице маршрутизации присутствует только маршрут по умолчанию  
+
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/IPv6_R20.png)  
 В таблице маршрутизации маршруты до R19  отсутствуют  
