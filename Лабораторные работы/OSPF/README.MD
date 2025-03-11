@@ -95,10 +95,32 @@ area 102 filter-list prefix AREA-101 in
 
 #### Таблица маршрутизации R20:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/R20_routes.png)  
-В таблице маршрутизации маршруты до сетей R19 (10.200.50.0/30 и 4.4.4.19/32 отсутствуют)  
+В таблице маршрутизации маршруты до сетей R19 (10.200.50.0/30 и 4.4.4.19/32) отсутствуют    
 
 ### Часть 6: Настройка IPV6:  
-Логика процесса настройки схожа с IPv4, приведу примеры конфигурации:  
+
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/OSPF_IPv6.png)  
 
-
+#### логика процесса настройки схожа с IPv4:  
+- Включаем процесс маршрутизации на R12-R15, R19-R20, поднимаем процесс OSPFv3, назначаем router-id для каждого маршрутизатора.  
+ ipv6 unicast-routing  
+ ipv6 router ospf 50  
+- далее на каждом интерфейсе также задействуем процесс OSPFv3 и объявляем зоны  
+ ipv6 enable  
+ ipv6 ospf 50 area 0 (пример для интерфейсов в зоне 0)  
+#### дополнительно:  
+- для маршрутизаторов R14-R15 настроим трансляцию маршрутов по умолчанию и маршруты до сетей провайдера:  
+ default-information originate  
+ ipv6 route ::/0 2024:BACD:2020:1::1 (для R14)  
+- для R19 настроим totally stubby area (на интерфейсах)  
+ipv6 ospf 50 area 101  
+- для R20 настроим фильтрацию маршрутов до R19 (настраиваем префикс-листы на R15)  
+ ipv6 prefix-list AREA-101 seq 5 deny 2024:BACD:2020:9::/64  
+ ipv6 prefix-list AREA-101 seq 10 permit ::/0 le 128  
+ ipv6 router ospf 50  
+ area 102 filter-list prefix AREA-101 in  
+- проверяем условия задания:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/IPv6_R19.png)  
+В таблице маршрутизации присутствует только маршрут по умолчанию  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/IPv6_R20.png)  
+В таблице маршрутизации маршруты до сетей R19 (10.200.50.0/30 и 4.4.4.19/32) отсутствуют  
