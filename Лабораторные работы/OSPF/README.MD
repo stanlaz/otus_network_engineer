@@ -99,6 +99,6 @@ area 102 filter-list prefix AREA-101 in
 
 ### Часть 6: Настройка IPV6:  
 Логика процесса настройки схожа с IPv4, приведу примеры конфигурации:  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/Topology_IPv6.png)  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/OSPF_IPv6.png)  
 
 
