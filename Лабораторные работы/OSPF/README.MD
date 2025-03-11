@@ -123,4 +123,4 @@ ipv6 ospf 50 area 101
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/IPv6_R19.png)  
 В таблице маршрутизации присутствует только маршрут по умолчанию  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/OSPF/IPv6_R20.png)  
-В таблице маршрутизации маршруты до сетей R19 (10.200.50.0/30 и 4.4.4.19/32) отсутствуют  
+В таблице маршрутизации маршруты до R19  отсутствуют  
