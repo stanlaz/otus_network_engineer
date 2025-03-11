@@ -10,4 +10,4 @@
 - Использовать EIGRP named-mode для настройки сети  
 - Настройка осуществляется одновременно для IPv4 и IPv6  
 
-![alt-текст]()
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/EIGRP/EIGRP_IPv4.png)  
