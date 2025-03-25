@@ -5,8 +5,8 @@
 
 - Настроите iBGP в офисе Москва между маршрутизаторами R14 и R15  
 - Настроите iBGP в провайдере Триада, с использованием RR  
-- Настройте офиса Москва так, чтобы приоритетным провайдером стал Ламас  
-- Настройте офиса С.-Петербург так, чтобы трафик до любого офиса распределялся по двум линкам одновременно  
+- Настройте офис Москва так, чтобы приоритетным провайдером стал Ламас  
+- Настройте офис С.-Петербург так, чтобы трафик до любого офиса распределялся по двум линкам одновременно  
 - Все сети в лабораторной работе должны иметь IP связность
 #### Topology:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/IBGP/iBGP-Topology.png)  
@@ -34,7 +34,7 @@ router bgp 1001
  neighbor 4.4.4.13 update-source Loopback1  
   
 
-### Часть 1: Настроим iBGP в провайдере Триада с использованием RR (AS520), в качестве Route Reflector выберем R23, настроим группу соседей AS520:   
+### Часть 2: Настроим iBGP в провайдере Триада с использованием RR (AS520), в качестве Route Reflector выберем R23, настроим группу соседей AS520:   
 
 R23:  
 router bgp 520  
@@ -66,6 +66,21 @@ router bgp 520
  Проверим формирование соседства:  
  ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/IBGP/TRIADA-iBGB-NEIG.png)  
 
+### Часть 3: Настроим сеть офиса Москва так, чтобы приоритетным провайдером стал Ламас, изменим дефолтные значения LOCAL_PREF с помощью route-map на R14 и R15:  
 
+R14:  
+route-map AS-101-IN permit 10  
+ set local-preference 90  
+router bgp 1001  
+neighbor 75.100.50.22 route-map AS-101-IN in  
 
+R15:  
+route-map AS-301-IN permit 10  
+ set local-preference 110  
+router bgp 1001  
+neighbor 90.100.50.9 route-map AS-301-IN in  
+
+Теперь маршрут идет через R15:  
+
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/IBGP/TRACE-TO-CHOCK.png)  
 
