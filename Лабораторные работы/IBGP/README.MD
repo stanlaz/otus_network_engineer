@@ -84,3 +84,11 @@ neighbor 90.100.50.9 route-map AS-301-IN in
 
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/IBGP/TRACE-TO-CHOCK.png)  
 
+### Часть 4: Настроим офис С.-Петербург так, чтобы трафик до любого офиса распределялся по двум линкам одновременно, настроим функцию multipath в AS-2042 BGP  
+
+router bgp 2042  
+ bgp bestpath as-path multipath-relax  
+ maximum-paths 2  
+
+ Проверка:  
+ ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/IBGP/MULTIPATH.png)  
