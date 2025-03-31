@@ -25,8 +25,12 @@ neighbor 75.100.50.22 filter-list 4 out
 ip as-path access-list 4 permit ^$  
 router bgp 1001  
 neighbor 90.100.50.9 filter-list 4 out  
-!  
-![alt-текст]()
+! 
+Таблица соседей BGP R21  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/IP-BGP-R21.png)  
+Таблица соседей BGP R22  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/IP-BGP-R22.png)  
+
 ### Часть2:  Настроим фильтрацию в офисе С.-Петербург  
 Создадим списки префиксов (prefix-list) для сетей C.-Петербург и применим наш фильтр:  
 R18:  
@@ -47,8 +51,8 @@ router bgp 2042
  neighbor 80.80.50.73 prefix-list NO-TRAN out  
  neighbor 80.80.50.81 remote-as 520  
  neighbor 80.80.50.81 prefix-list NO-TRAN out  
-!
-![alt-текст]()
+!  
+
 ### Часть3:  Настройм провайдера Киторн так, чтобы в офис Москва отдавался только маршрут по умолчанию
 Для R22 создадим route-map и настроим маршрут по умолчанию в сторону R14:  
 R22:  
