@@ -25,8 +25,9 @@ neighbor 75.100.50.22 filter-list 4 out
 ip as-path access-list 4 permit ^$  
 router bgp 1001  
 neighbor 90.100.50.9 filter-list 4 out  
-! 
+!  
 Таблица соседей BGP R21  
+
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/IP-BGP-R21.png)  
 Таблица соседей BGP R22  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/IP-BGP-R22.png)  
