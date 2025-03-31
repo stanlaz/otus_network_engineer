@@ -11,8 +11,44 @@
 
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTR/BGP-Topology.png)  
 
-### Часть1: Настроим фильтрацию в офисе Москва  
-### Часть2:  
-### Часть3:  
+### Часть1: Настроим фильтрацию в офисе Москва на основании атрибута AS PATH.  
+Чтобы избежать транзита трафика, cоздадим специальный тип access-list:  
+для R14:  
+!  
+ip as-path access-list 4 permit ^$  
+router bgp 1001  
+neighbor 75.100.50.22 filter-list 4 out  
+!  
+
+для R15:  
+!  
+ip as-path access-list 4 permit ^$  
+router bgp 1001  
+neighbor 90.100.50.9 filter-list 4 out  
+!  
+
+### Часть2:  Настроим фильтрацию в офисе С.-Петербург  
+Создадим списки префиксов (prefix-list) для наших сетей и применим наш фильтр:  
+R18:  
+!  
+ip prefix-list NO-TRAN seq 5 permit 5.5.5.18/32  
+ip prefix-list NO-TRAN seq 6 permit 5.5.5.17/32  
+ip prefix-list NO-TRAN seq 7 permit 5.5.5.16/32  
+ip prefix-list NO-TRAN seq 8 permit 5.5.5.32/32  
+ip prefix-list NO-TRAN seq 10 permit 10.210.50.0/30  
+ip prefix-list NO-TRAN seq 15 permit 10.210.50.4/30  
+ip prefix-list NO-TRAN seq 20 permit 10.210.50.8/30  
+ip prefix-list NO-TRAN seq 25 permit 172.27.30.0/24  
+ip prefix-list NO-TRAN seq 30 permit 172.27.40.0/24  
+ip prefix-list NO-TRAN seq 35 deny 0.0.0.0/0 le 32  
+!  
+router bgp 2042  
+ neighbor 80.80.50.73 remote-as 520  
+ neighbor 80.80.50.73 prefix-list NO-TRAN out  
+ neighbor 80.80.50.81 remote-as 520  
+ neighbor 80.80.50.81 prefix-list NO-TRAN out  
+
+### Часть3:  Настройм провайдера Киторн так, чтобы в офис Москва отдавался только маршрут по умолчанию
+
 ### Часть4:  
 ### Часть5:  
