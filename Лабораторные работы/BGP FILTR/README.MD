@@ -28,7 +28,7 @@ neighbor 90.100.50.9 filter-list 4 out
 !  
 
 ### Часть2:  Настроим фильтрацию в офисе С.-Петербург  
-Создадим списки префиксов (prefix-list) для наших сетей и применим наш фильтр:  
+Создадим списки префиксов (prefix-list) для сетей C.-Петербург и применим наш фильтр:  
 R18:  
 !  
 ip prefix-list NO-TRAN seq 5 permit 5.5.5.18/32  
@@ -49,6 +49,25 @@ router bgp 2042
  neighbor 80.80.50.81 prefix-list NO-TRAN out  
 
 ### Часть3:  Настройм провайдера Киторн так, чтобы в офис Москва отдавался только маршрут по умолчанию
+Для R22 создадим route-map и настроим маршрут по умолчанию в сторону R14  
+R22:  
+!    
+route-map DEFAULT deny 10  
+router bgp 101  
+ neighbor 75.100.50.21 default-originate  
+ neighbor 75.100.50.21 route-map DEFAULT out  
+!
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTR/IP-BGP-R14.png)  
 
-### Часть4:  
+### Часть4:  Настроим провайдера Ламас так, чтобы в офис Москва отдавался только маршрут по умолчанию и префикс офиса С.-Петербург  
+Настроим маршрут по умолчанию для R15 и список доступа к AS2042:  
+!  
+ip as-path access-list 1 permit _2042$  
+router bgp 301  
+neighbor 90.100.50.10 default-originate  
+ neighbor 90.100.50.10 filter-list 1 out  
+!  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTR/IP-BGP-R15.png)  
+
 ### Часть5:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTR/ECHO-VPC1-OTHER.png)  
