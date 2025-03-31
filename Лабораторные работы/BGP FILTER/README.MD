@@ -26,12 +26,12 @@ ip as-path access-list 4 permit ^$
 router bgp 1001  
 neighbor 90.100.50.9 filter-list 4 out  
 !  
-Таблица соседей BGP R21  
-
+Таблица соседей BGP R21:  
+!
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/IP-BGP-R21.png)  
 !  
 Таблица соседей BGP R22:  
-! 
+!  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/IP-BGP-R22.png)  
 
 ### Часть2:  Настроим фильтрацию в офисе С.-Петербург  
@@ -64,7 +64,7 @@ route-map DEFAULT deny 10
 router bgp 101  
  neighbor 75.100.50.21 default-originate  
  neighbor 75.100.50.21 route-map DEFAULT out  
-!
+!  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/IP-BGP-R14.png)  
 
 ### Часть4:  Настроим провайдера Ламас так, чтобы в офис Москва отдавался только маршрут по умолчанию и префикс офиса С.-Петербург  
@@ -77,5 +77,5 @@ neighbor 90.100.50.10 default-originate
 !  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/IP-BGP-R15.png)  
 
-### Часть5:  
+### Часть5:  Проверим IP связность
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/BGP%20FILTER/ECHO-VPC1-OTHER.png)  
