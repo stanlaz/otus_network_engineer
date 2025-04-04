@@ -123,10 +123,11 @@ interface Ethernet0/3
 ntp master 1  
 ntp update-calendar  
 !  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/NTP-R14.png)  
-!  
 На клиентах:  
 ntp server 4.4.4.12  
 ntp server 4.4.4.13  
 !  
+Проверка:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/NTP-R14.png)  
+
 
