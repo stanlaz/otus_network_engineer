@@ -42,7 +42,7 @@ interface Ethernet0/2
 interface Ethernet0/3  
   ip nat inside  
 !  
-### Часть1: Настроим NAT (PAT) для R18  
+### Часть2: Настроим NAT (PAT) для R18  
 !  
 interface Ethernet0/0  
  ip nat inside  
@@ -68,4 +68,46 @@ ip nat pool SPB-R24 80.80.50.85 80.80.50.89 prefix-length 28
 ip nat inside source route-map SPB-R24 pool SPB-R24  
 ip nat inside source route-map SPB-R26 pool SPB-R26  
 !  
+
+### Часть3: Настроим статический NAT для R20:  
+!  
+ip nat inside source static 10.200.50.22 90.100.50.10  
+!  
+### Часть4: Настроим NAT так, чтобы R19 был доступен с любого узла для удаленного управления:  
+!  
+ip nat inside source static 10.200.50.2 75.100.50.21  
+!  
+### Часть5: Настроим NAT(PAT) для офиса Чокурдах.  
+!  
+interface Ethernet0/0  
+ ip nat outside    
+interface Ethernet0/2  
+ ip nat inside  
+!  
+access-list 20 permit 172.27.50.0 0.0.0.255  
+ip nat inside source list 20 interface Ethernet0/0 overload  
+!  
+### Часть6: Настроим DHCP сервер в офисе Москва.  
+Для R12:  
+!  
+ip dhcp excluded-address 172.27.10.1  
+ip dhcp excluded-address 172.27.10.2  
+ip dhcp pool VPC1  
+ network 172.27.10.0 255.255.255.0  
+ default-router 172.27.10.1  
+ domain-name MOSCOW  
+!  
+Для R13:  
+!  
+ip dhcp excluded-address 172.27.20.1  
+ip dhcp excluded-address 172.27.20.2  
+ip dhcp pool VPC7  
+ network 172.27.20.0 255.255.255.0  
+ default-router 172.27.20.1  
+ domain-name MOSCOW  
+!  
+#### Проверка:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/DHCP-VPC.png)  
+
+### Часть7: Настроим DHCP сервер в офисе Москва.  
 
