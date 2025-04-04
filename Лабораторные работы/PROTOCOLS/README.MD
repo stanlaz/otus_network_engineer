@@ -109,5 +109,24 @@ ip dhcp pool VPC7
 #### Проверка:  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/DHCP-VPC.png)  
 
-### Часть7: Настроим DHCP сервер в офисе Москва.  
+### Часть7: Настроим NTP сервер на R12 и R13:  
+!  
+interface Ethernet0/0  
+ ntp broadcast  
+interface Ethernet0/1  
+ ntp broadcast  
+interface Ethernet0/2  
+ ntp broadcast  
+interface Ethernet0/3  
+ ntp broadcast  
+!  
+ntp master 1  
+ntp update-calendar  
+!  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/NTP-R14.png)  
+!  
+На клиентах:  
+ntp server 4.4.4.12  
+ntp server 4.4.4.13  
+!  
 
