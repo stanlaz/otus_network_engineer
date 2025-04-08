@@ -13,8 +13,7 @@
 
 Для R14:  
 !  
-access-list 10 permit 172.27.10.0 0.0.0.255  
-access-list 10 permit 172.27.20.0 0.0.0.255  
+access-list 10 permit 172.27.0.0 0.0.255.255  
 !  
 ip nat inside source list 10 interface Ethernet0/2 overload  
 !  
@@ -29,8 +28,7 @@ interface Ethernet0/3
 !  
 Для R15:  
 !  
-access-list 10 permit 172.27.10.0 0.0.0.255  
-access-list 10 permit 172.27.20.0 0.0.0.255  
+access-list 10 permit 172.27.0.0 0.0.255.255  
 !  
 ip nat inside source list 10 interface Ethernet0/2 overload  
 !  
@@ -58,8 +56,8 @@ interface Ethernet0/2
 interface Ethernet0/3  
  ip nat outside  
 !  
-access-list 15 permit 172.27.30.0 0.0.0.255  
-access-list 15 permit 172.27.40.0 0.0.0.255  
+access-list 15 permit 172.27.0.0 0.0.255.255  
+!  
 route-map SPB-R24 permit 10  
  match ip address 15  
  match interface Ethernet0/2  
