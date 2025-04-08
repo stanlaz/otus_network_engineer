@@ -43,6 +43,11 @@ interface Ethernet0/2
 interface Ethernet0/3  
   ip nat inside  
 !  
+
+Проверка:  
+!
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations.png)  
+
 ### Часть2: Настроим NAT (PAT) для R18  
 !  
 interface Ethernet0/0  
