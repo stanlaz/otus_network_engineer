@@ -43,11 +43,10 @@ interface Ethernet0/2
 interface Ethernet0/3  
   ip nat inside  
 !  
-
 Проверка:  
-!
+!  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations.png)  
-
+!  
 ### Часть2: Настроим NAT (PAT) для R18  
 !  
 interface Ethernet0/0  
@@ -75,31 +74,37 @@ ip nat inside source route-map SPB-R24 pool SPB-R24
 ip nat inside source route-map SPB-R26 pool SPB-R26  
 !  
 Проверка:  
-!
+!  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations-R18.png)  
-
+!  
 ### Часть3: Настроим статический NAT для R20:  
 для R15:  
 !  
-ip nat inside source static 10.200.50.22 90.100.50.10  
+ip nat inside source static 4.4.4.20 90.100.50.11  
 !  
 Проверка:  
-!
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations-R20.png)  
-!
+!  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations-R20.png)   
+!  
 ### Часть4: Настроим NAT так, чтобы R19 был доступен с любого узла для удаленного управления:  
 !  
-ip nat inside source static 10.200.50.2 75.100.50.21  
+ip nat inside source static 4.4.4.19 75.100.50.20  
+!  
+Проверка:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations-R14.png)  
 !  
 ### Часть5: Настроим NAT(PAT) для офиса Чокурдах.  
 !  
 interface Ethernet0/0  
- ip nat outside    
+ ip nat outside  
 interface Ethernet0/2  
  ip nat inside  
 !  
 access-list 20 permit 172.27.50.0 0.0.0.255  
 ip nat inside source list 20 interface Ethernet0/0 overload  
+!  
+Проверка:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations-R28.png)  
 !  
 ### Часть6: Настроим DHCP сервер в офисе Москва.  
 Для R12:  
