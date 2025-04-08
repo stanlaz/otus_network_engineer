@@ -74,6 +74,9 @@ ip nat pool SPB-R24 80.80.50.85 80.80.50.89 prefix-length 28
 ip nat inside source route-map SPB-R24 pool SPB-R24  
 ip nat inside source route-map SPB-R26 pool SPB-R26  
 !  
+Проверка:  
+!
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations-R18.png)  
 
 ### Часть3: Настроим статический NAT для R20:  
 !  
