@@ -79,9 +79,14 @@ ip nat inside source route-map SPB-R26 pool SPB-R26
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations-R18.png)  
 
 ### Часть3: Настроим статический NAT для R20:  
+для R15:  
 !  
 ip nat inside source static 10.200.50.22 90.100.50.10  
 !  
+Проверка:  
+!
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROTOCOLS/nat-translations-R20.png)  
+!
 ### Часть4: Настроим NAT так, чтобы R19 был доступен с любого узла для удаленного управления:  
 !  
 ip nat inside source static 10.200.50.2 75.100.50.21  
