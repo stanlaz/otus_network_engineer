@@ -31,7 +31,7 @@ interface Tunnel1
  tunnel source 80.80.50.82  
  tunnel destination 90.100.50.10  
 !  
-Анонсируем статические маршруты до сетей филиала Москва:
+Анонсируем статические маршруты до сетей филиала Москва:  
 ip route 172.27.10.0 255.255.255.0 Tunnel1  
 ip route 172.27.20.0 255.255.255.0 Tunnel1  
 !  
@@ -72,11 +72,11 @@ interface Tunnel2
  keepalive 5 10  
  tunnel source Ethernet0/0  
  tunnel mode gre multipoint  
- !  
+!  
  Анонсируем статические маршруты до сетей филиала Москвва:  
 ip route 172.27.10.0 255.255.255.0 10.50.30.11  
-ip route 172.27.20.0 255.255.255.0 10.50.30.11 
-!   
+ip route 172.27.20.0 255.255.255.0 10.50.30.11  
+!  
 R28:  
 !  
 interface Tunnel2  
@@ -101,8 +101,8 @@ interface Tunnel2
 ip route 172.27.10.0 255.255.255.0 10.50.30.11  
 ip route 172.27.20.0 255.255.255.0 10.50.30.11  
 
-### Часть 3: проверка: 
-!   
+### Часть 3: проверка:  
+!  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/GRE-DMVPN/ECHO-VPC-1.png)  
 !  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/GRE-DMVPN/TRACE-R27.png)  
