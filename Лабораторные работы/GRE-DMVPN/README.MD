@@ -101,7 +101,14 @@ interface Tunnel2
 ip route 172.27.10.0 255.255.255.0 10.50.30.11  
 ip route 172.27.20.0 255.255.255.0 10.50.30.11  
 
-### Часть 3: проверка:  
+### Часть 3: проверка: 
+!   
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/GRE-DMVPN/ECHO-VPC-1.png)  
+!  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/GRE-DMVPN/TRACE-R27.png)  
+!  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/GRE-DMVPN/TRACE-R32.png)  
+!  
 
 
 
