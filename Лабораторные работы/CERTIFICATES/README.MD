@@ -86,5 +86,5 @@ tunnel protection ipsec profile MOSCOW-1
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/IPSec-SA-R27-R28.png)  
 #### IP связность:  
 !  
-![alt-текст](hhttps://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/ECHO-VPC7.png)  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/ECHO-VPC7.png)  
 ![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/TRACE-TO-VPC1.png)  
