@@ -41,9 +41,9 @@ crypto pki server R14 grant 2
 crypto pki server R14 grant 3  
 crypto pki server R14 grant 4  
 #### проверим выданные сертификаты  
-
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/R14-CERTIFICATES.png)  
 !  
-## Часть 2: Настроим IKE-политики и IPSec профиль:    
+## Часть 2: Настроим IKE-политики и IPSec профиль:  
 !  
 #### Для R15 - R18:  
 crypto isakmp enable  
@@ -51,12 +51,12 @@ crypto isakmp policy 10
  encr aes  
  hash sha256  
  group 16  
- lifetime 3600  
+ lifetime 3600   
 !  
 crypto ipsec transform-set VTI esp-aes esp-sha-hmac  
 mode transport  
 crypto ipsec profile MOSCOW  
-set transform-set VTI
+set transform-set VTI  
 !  
 #### Для R15 - R27,R28:  
 crypto isakmp enable  
@@ -79,5 +79,12 @@ tunnel protection ipsec profile MOSCOW
 #### для interface Tunnel2:  
 !  
 tunnel protection ipsec profile MOSCOW-1  
-!   
-## Часть 4: проверка  
+!  
+## Часть 4: проверка:  
+#### вывод состояния для phase-2 IPSec:  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/IPSec-SA-R15-R18.png)  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/IPSec-SA-R27-R28.png)  
+#### IP связность:  
+!  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/ECHO-VPC7.png)  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/TRACE-TO-VPC1.png)  
