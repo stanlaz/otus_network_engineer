@@ -41,7 +41,7 @@ crypto pki server R14 grant 2
 crypto pki server R14 grant 3  
 crypto pki server R14 grant 4  
 #### проверим выданные сертификаты  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/R14-CERTIFICATES.png)  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/R14-CERTIFICATES.png)  
 !  
 ## Часть 2: Настроим IKE-политики и IPSec профиль:  
 !  
@@ -82,9 +82,9 @@ tunnel protection ipsec profile MOSCOW-1
 !  
 ## Часть 4: проверка:  
 #### вывод состояния для phase-2 IPSec:  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/IPSec-SA-R15-R18.png)  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/IPSec-SA-R27-R28.png)  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/IPSec-SA-R15-R18.png)  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/IPSec-SA-R27-R28.png)  
 #### IP связность:  
 !  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/ECHO-VPC7.png)  
-![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERT/TRACE-TO-VPC1.png)  
+![alt-текст](hhttps://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/ECHO-VPC7.png)  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/CERTIFICATES/TRACE-TO-VPC1.png)  
