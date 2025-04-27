@@ -14,4 +14,4 @@
 
 Топология:  
 
-![alt-текст]()  
+![alt-текст](https://github.com/stanlaz/otus_network_engineer/blob/main/Лабораторные%20работы/PROJECT/project-topology.png)  
